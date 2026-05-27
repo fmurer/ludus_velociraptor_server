@@ -37,21 +37,17 @@ None.
 
 ```yaml
 ludus:
-  - vm_name: "{{ range_id }}-ad-dc-win2022-server-x64-1"
-    hostname: "{{ range_id }}-DC01-2022"
-    template: win2022-server-x64-template
+  - vm_name: "{{ range_id }}-veloserver"
+    hostname: "{{ range_id }}-veloserver"
+    template: ubuntu-24.04-x64-server-template
     vlan: 10
-    ip_last_octet: 11
-    ram_gb: 6
+    ip_last_octet: 45
+    ram_gb: 4
     cpus: 4
-    windows:
-      sysprep: true
-    domain:
-      fqdn: ludus.domain
-      role: primary-dc
+    linux: true
     roles:
       - ludus_velociraptor_server
-    vars:
+    role_vars:
       velociraptor_admin_user: "admin"
       velociraptor_admin_password: "password"
 ```
